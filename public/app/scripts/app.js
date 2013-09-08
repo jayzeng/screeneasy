@@ -23,7 +23,15 @@ angular.module('publicApp', ['fireace', 'ngResource','ui.bootstrap','simplewebrt
         templateUrl: 'views/interview.html',
         controller: 'InterviewCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'AuthenticationCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .run(['$rootScope', 'authManager', function($rootScope, authManager) {
+      $rootScope.login = authManager.login;
+      $rootScope.logout = authManager.logout;
+  }]);
