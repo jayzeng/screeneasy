@@ -1,0 +1,15 @@
+<h4 class="sub_headline text-muted">Current questions</h4>
+<div class="form-group">
+    <input class="col-lg-8" type="text" ng-model="searchQuestions" placeholder="Search questions" />
+    <button type="submit" class="small-padding btn btn-sm">Search</button>
+</div>
+
+<ul class="row">
+  <li class="col-sm-6" ng-repeat="question in questions | interviewQuestions:searchQuestions">
+      <p>id: {{question.id}}</p>
+      <p>title: {{question.title}}</p>
+      <p>body: {{question.body}}</p>
+      <p>source: {{question.source}}</p>
+      <p>created: {{question.created}}</p>
+  </li>
+</ul>
