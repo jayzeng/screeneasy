@@ -35,5 +35,19 @@ module.exports = function(app, nconf) {
 
     });
 
+    app.options('/v1/developer/:email', function(req, res) {
+      res.send(200);
+    });
+
     // Provide an endpoint to search by email address
+    app.post('/v1/developer/', function(req, res) {
+        github3.getUser(req.body.email, function(error, user) {
+          github_profile.basic = user;
+
+          github3.getUserRepos(github_handle, function(error, repos) {
+            github_profile.social.github = repos;
+            res.json(github_profile);
+          });
+        });
+    });
 };

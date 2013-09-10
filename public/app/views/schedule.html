@@ -7,7 +7,7 @@
                 <h4 class="sub_headline text-muted">Candidate Information</h4>
                 <form class="form-horizontal" role="form">
                   <div class="form-group">
-                    <label for="candidate.name" class="col-lg-2 control-label">Title</label>
+                    <label for="candidate.name" class="col-lg-2 control-label">Name</label>
                     <div class="col-lg-6">
                       <input type="text" class="form-control" id="candidate.name" placeholder="John Smith" ng-model="candidate.name">
                     </div>
@@ -24,6 +24,10 @@
                       <input type="text" class="form-control" id="candidate.phone" placeholder="(206) 123-4567" ng-model="candidate.phone">
                     </div>
                   </div>
+                  <span class="text-muted">
+                      <p>(We will send an invitation email after
+                      the inview is scheduled)</p>
+                  </span>
                   <div class="form-group">
                     <div class="col-lg-offset-4 col-lg-6">
                       <button type="submit" class="btn btn-default" ng-click="inviteCandidate();">Invite</button>
@@ -42,7 +46,6 @@
             <h3>Pick a date and time</h3>
             <datepicker ng-model="interviewDate" show-weeks="false"></datepicker>
             <timepicker ng-model="interviewTime" hour-step="1" minute-step="15"></timepicker>
-
         </div>
         <p>
            <input type="submit" value="Schedule" class="btn btn-info" ng-click="scheduleInterview()" />
